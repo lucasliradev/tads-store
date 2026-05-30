@@ -2,7 +2,7 @@
   --cor-fundo: #0e1512;
   --cor-borda: #243029;
   --cor-texto: #eef2f0;
-  --cor-cabecalho-rodape: rgba(14, 21, 18, 0.8);
+  --cor-cabecalho-rodape: rgba(14, 21, 18, 0.9);
   --cor-superficie: #16201c;
   --cor-acento: #2f7d63;
   --cor-acento-claro: #4fd1a5;
@@ -28,12 +28,16 @@ body {
 
 /* --- Cabeçalho --- */
 .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   border-bottom: 1px solid var(--cor-borda);
-  background-color: var(--cor-cabecalho-rodape)
+  background-color: var(--cor-cabecalho-rodape);
+  backdrop-filter: blur(20px);
 }
 
 .cabecalho_titulo {
@@ -157,4 +161,6 @@ body {
   padding: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
+  position: sticky;
+  bottom: 0;
 }
