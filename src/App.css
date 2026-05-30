@@ -3,8 +3,11 @@
   --cor-borda: #243029;
   --cor-texto: #eef2f0;
   --cor-cabecalho-rodape: rgba(14, 21, 18, 0.8);
+  --cor-superficie: #16201c;
   --cor-acento: #2f7d63;
+  --cor-acento-claro: #4fd1a5;
   --fonte-corpo: "Hanken Grotesk", system-ui, sans-serif;
+  --fonte-display: "Bricolage Grotesque", system-ui, sans-serif;
 }
 
 * {
@@ -18,9 +21,9 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   background-image: radial-gradient(
-      rgba(79, 209, 165, 0.12),
-      transparent 90%
-    );
+    rgba(79, 209, 165, 0.12),
+    transparent 90%
+  );
 }
 
 /* --- Cabeçalho --- */
@@ -72,6 +75,55 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.5rem;
+}
+
+/* --- Card de produto --- */
+.produto-card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.produto-card:hover {
+  border-color: var(--cor-acento-claro);
+  cursor: pointer;
+}
+
+.produto-card_imagem {
+  height: 140px;
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cor-acento-claro);
+  background: linear-gradient(135deg, #1c2823, #11181500);
+}
+
+.produto-card_corpo {
+  padding: 1.1rem 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  flex: 1;
+}
+
+.produto-card_nome {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.produto-card_preco {
+  font-family: var(--fonte-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--cor-acento-claro);
+  margin-bottom: 0.4rem;
 }
 
 /* --- Botão --- */
