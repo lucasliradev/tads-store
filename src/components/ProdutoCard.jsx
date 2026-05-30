@@ -18,7 +18,10 @@ export default function ProdutoCard({ produto }) {
       </div> 
 
       <div className="produto-card_corpo">
-        {freteGratis && <Selo texto="Frete grátis" cor="#2f7d63" />}
+        {freteGratis
+          ? <Selo texto="Frete grátis" cor="#2f7d63" />
+          : <Selo texto="Cupom 10% OFF" cor="#886211" />
+        }
 
         <h3 className="produto-card_nome">{nome}</h3>
         <p className="produto-card_preco">{formatarPreco(preco)}</p>

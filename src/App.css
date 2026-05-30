@@ -2,7 +2,6 @@
   --cor-fundo: #0e1512;
   --cor-borda: #243029;
   --cor-texto: #eef2f0;
-  --cor-cabecalho-rodape: rgba(14, 21, 18, 0.9);
   --cor-superficie: #16201c;
   --cor-acento: #2f7d63;
   --cor-acento-claro: #4fd1a5;
@@ -36,7 +35,7 @@ body {
   justify-content: center;
   padding: 1rem;
   border-bottom: 1px solid var(--cor-borda);
-  background-color: var(--cor-cabecalho-rodape);
+  background-color: rgba(14, 21, 18, 0.9);
   backdrop-filter: blur(20px);
 }
 
@@ -130,6 +129,18 @@ body {
   margin-bottom: 0.4rem;
 }
 
+/* --- Selo --- */
+.selo {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--cor-texto);
+}
+
 /* --- Botão --- */
 .botao {
   margin-top: auto;
@@ -156,7 +167,7 @@ body {
 
 /* --- Rodapé --- */
 .rodape {
-  background-color: var(--cor-cabecalho-rodape);
+  background-color: rgb(14, 21, 18);
   border-top: 1px solid var(--cor-borda);
   padding: 0.5rem;
   text-align: center;
