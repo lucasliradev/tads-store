@@ -3,6 +3,7 @@
   --cor-borda: #243029;
   --cor-texto: #eef2f0;
   --cor-cabecalho-rodape: rgba(14, 21, 18, 0.8);
+  --cor-acento: #2f7d63;
   --fonte-corpo: "Hanken Grotesk", system-ui, sans-serif;
 }
 
@@ -71,6 +72,30 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.5rem;
+}
+
+/* --- Botão --- */
+.botao {
+  margin-top: auto;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: filter 0.2s, transform 0.05s;
+  background: var(--cor-acento);
+  color: var(--cor-texto);
+}
+
+.botao:active {
+  transform: scale(0.98);
+}
+
+.botao:hover {
+  filter: brightness(1.15);
 }
 
 /* --- Rodapé --- */
