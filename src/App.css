@@ -35,8 +35,7 @@ body {
   justify-content: center;
   padding: 1rem;
   border-bottom: 1px solid var(--cor-borda);
-  background-color: rgba(14, 21, 18, 0.9);
-  backdrop-filter: blur(20px);
+  background-color: rgb(14, 21, 18);
 }
 
 .cabecalho_titulo {
@@ -65,13 +64,16 @@ body {
   flex: 1;
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 /* --- Vitrine --- */
 .vitrine_titulo {
   font-weight: 700;
   margin-bottom: 2rem;
+  font-family: var(--fonte-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.03em;
 }
 
 .vitrine_grade {
@@ -93,7 +95,6 @@ body {
 
 .produto-card:hover {
   border-color: var(--cor-acento-claro);
-  cursor: pointer;
 }
 
 .produto-card_imagem {
@@ -172,6 +173,4 @@ body {
   padding: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
-  position: sticky;
-  bottom: 0;
 }
