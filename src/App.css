@@ -1,0 +1,70 @@
+:root {
+  --cor-fundo: #0e1512;
+  --cor-borda: #243029;
+  --cor-texto: #eef2f0;
+  --cor-cabecalho-rodape: rgba(14, 21, 18, 0.8);
+  --fonte-corpo: "Hanken Grotesk", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  background-image: radial-gradient(
+      rgba(79, 209, 165, 0.12),
+      transparent 90%
+    );
+}
+
+/* --- Cabeçalho --- */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--cor-borda);
+  background-color: var(--cor-cabecalho-rodape)
+}
+
+.cabecalho_titulo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.cabecalho_img {
+  height: 1.5rem;
+  width: auto;
+  display: block;
+  margin-right: 0.2rem;
+}
+
+/* --- Layout --- */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Vitrine --- */
+.vitrine_titulo {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* --- Rodapé --- */
+.rodape {
+  background-color: var(--cor-cabecalho-rodape);
+  border-top: 1px solid var(--cor-borda);
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
