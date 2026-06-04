@@ -70,10 +70,59 @@ body {
 /* --- Vitrine --- */
 .vitrine_titulo {
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-family: var(--fonte-display);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   letter-spacing: -0.03em;
+}
+
+/* --- Barra de filtros --- */
+.vitrine_filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.vitrine_busca,
+.vitrine_select {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  color: var(--cor-texto);
+  padding: 0.65rem 0.9rem;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.vitrine_busca {
+  flex: 1;
+  min-width: 220px;
+}
+
+.vitrine_select {
+  cursor: pointer;
+  min-width: 200px;
+  text-transform: capitalize;
+}
+
+.vitrine_busca:focus,
+.vitrine_select:focus {
+  border-color: var(--cor-acento-claro);
+}
+
+/* --- Mensagens de estado --- */
+.vitrine_estado {
+  padding: 3rem 1rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+.vitrine_estado--erro {
+  color: #ff8a7a;
+  opacity: 1;
 }
 
 .vitrine_grade {
@@ -98,14 +147,20 @@ body {
 }
 
 .produto-card_imagem {
-  height: 140px;
-  display: grid;
-  place-items: center;
-  font-family: var(--fonte-display);
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--cor-acento-claro);
-  background: linear-gradient(135deg, #1c2823, #11181500);
+  height: 180px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.produto-card_imagem img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .produto-card_corpo {
@@ -117,9 +172,32 @@ body {
   flex: 1;
 }
 
+.produto-card_selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
 .produto-card_nome {
   font-size: 1.1rem;
   font-weight: 600;
+  line-height: 1.3;
+  min-height: 2.6em;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.produto-card_precos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.produto-card_preco_usd {
+  font-size: 0.85rem;
+  opacity: 0.5;
 }
 
 .produto-card_preco {

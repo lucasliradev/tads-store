@@ -1,24 +1,118 @@
+import { useState, useEffect } from "react";
 import ProdutoCard from "./ProdutoCard";
 
-const produtos = [
-  { id: 1, nome: "Notebook Gamer", preco: 4799.9, freteGratis: true },
-  { id: 2, nome: "Mouse Sem Fio", preco: 149.9, freteGratis: false },
-  { id: 3, nome: "Teclado Mecânico", preco: 389.0, freteGratis: true },
-  { id: 4, nome: 'Monitor 27"', preco: 1299.9, freteGratis: true },
-  { id: 5, nome: "Headset", preco: 259.9, freteGratis: true },
-  { id: 6, nome: "Webcam Full HD", preco: 199.9, freteGratis: false },
-];
-
 export default function Vitrine() {
+  const [produtos, setProdutos] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [cotacao, setCotacao] = useState(5.00);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+  const [busca, setBusca] = useState("");
+  const [categoria, setCategoria] = useState("");
+
+  useEffect(() => {
+    setCarregando(true);
+    setErro(null);
+
+    fetch("https://dummyjson.com/products?limit=12&skip=0")
+      .then((res) => {
+        if (!res.ok) throw new Error("Falha ao carregar os produtos");
+        return res.json();
+      })
+      .then((dados) => {
+        setProdutos(dados.products);
+        setCarregando(false);
+      })
+      .catch((err) => {
+        setErro(err.message);
+        setCarregando(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products/categories")
+      .then((res) => res.json())
+      .then((dados) => {
+        const lista = dados.map((c) =>
+          typeof c === "string"
+            ? { slug: c, nome: c }
+            : { slug: c.slug, nome: c.name }
+        );
+        setCategorias(lista);
+      })
+      .catch(() => setCategorias([]));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://economia.awesomeapi.com.br/last/USD-BRL")
+      .then((res) => res.json())
+      .then((dados) => {
+        const valor = parseFloat(dados.USDBRL.bid);
+        if (!isNaN(valor)) setCotacao(valor);
+      })
+      .catch(() => {
+      });
+  }, []);
+
+  const produtosFiltrados = produtos.filter((p) => {
+    const correspondeBusca = p.title
+      .toLowerCase()
+      .includes(busca.toLowerCase());
+    const correspondeCategoria =
+      categoria === "" || p.category === categoria;
+    return correspondeBusca && correspondeCategoria;
+  });
+
   return (
     <section className="vitrine">
       <h2 className="vitrine_titulo">Produtos</h2>
 
-      <div className="vitrine_grade">
-        {produtos.map((produto) => (
-          <ProdutoCard key={produto.id} produto={produto} />
-        ))}
+      <div className="vitrine_filtros">
+        <input
+          type="text"
+          className="vitrine_busca"
+          placeholder="Buscar produto..."
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+        />
+
+        <select
+          className="vitrine_select"
+          value={categoria}
+          onChange={(e) => setCategoria(e.target.value)}
+        >
+          <option value="">Todas as categorias</option>
+          {categorias.map((c) => (
+            <option key={c.slug} value={c.slug}>
+              {c.nome}
+            </option>
+          ))}
+        </select>
       </div>
+
+      {carregando && <p className="vitrine_estado">Carregando...</p>}
+
+      {erro && (
+        <p className="vitrine_estado vitrine_estado--erro">
+          {erro}. Tente novamente mais tarde.
+        </p>
+      )}
+
+      {!carregando && !erro && produtosFiltrados.length === 0 && (
+        <p className="vitrine_estado">Nenhum produto encontrado.</p>
+      )}
+
+      {!carregando && !erro && produtosFiltrados.length > 0 && (
+        <div className="vitrine_grade">
+          {produtosFiltrados.map((produto) => (
+            <ProdutoCard
+              key={produto.id}
+              produto={produto}
+              cotacao={cotacao}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
