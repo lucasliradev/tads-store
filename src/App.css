@@ -469,3 +469,175 @@ body {
 .cabecalho_nav a.active {
   color: var(--cor-acento-claro);
 }
+
+/* --- Botão Sair no cabeçalho --- */
+.cabecalho_sair {
+  background: none;
+  border: none;
+  color: var(--cor-texto-suave);
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.cabecalho_sair:hover {
+  color: var(--cor-acento-claro);
+}
+
+/* --- Página de Login --- */
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.login_card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login_titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.login_subtitulo {
+  opacity: 0.55;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login_campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.login_campo label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.login_campo input {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  color: var(--cor-texto);
+  padding: 0.7rem 0.9rem;
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login_campo input:focus {
+  border-color: var(--cor-acento-claro);
+}
+
+.login_erro {
+  color: #ff8a7a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login_botao {
+  margin-top: 0.5rem;
+}
+
+.login_rodape {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login_rodape a {
+  color: var(--cor-acento-claro);
+  text-decoration: none;
+}
+
+.login_rodape a:hover {
+  text-decoration: underline;
+}
+
+/* --- Página Minha Conta --- */
+.minha-conta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.minha-conta_card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.minha-conta_avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--cor-acento);
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.minha-conta_titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.minha-conta_usuario {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.minha-conta_info {
+  font-size: 0.9rem;
+  opacity: 0.55;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.minha-conta_acoes {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.minha-conta_acoes .botao {
+  flex: 1;
+}

@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Cabecalho({ titulo = "TADS Store" }) {
+  const { logado, sair } = useAuth();
+  const navegar = useNavigate();
+
+  function aoSair() {
+    sair();
+    navegar("/");
+  }
+
   return (
     <header className="cabecalho">
       <NavLink to="/" className="cabecalho_titulo">
@@ -10,6 +19,15 @@ export default function Cabecalho({ titulo = "TADS Store" }) {
 
       <nav className="cabecalho_nav">
         <NavLink to="/">Início</NavLink>
+
+        {logado ? (
+          <>
+            <NavLink to="/minha-conta">Minha Conta</NavLink>
+            <button className="cabecalho_sair" onClick={aoSair}>Sair</button>
+          </>
+        ) : (
+          <NavLink to="/login">Entrar</NavLink>
+        )}
       </nav>
     </header>
   );
